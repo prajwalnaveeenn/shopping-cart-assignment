@@ -1,76 +1,54 @@
-## :warning: Please read these instructions carefully and entirely first
-* Clone this repository to your local machine.
-* Use your IDE of choice to complete the assignment.
-* Use Javascript or preferably Typescript to complete the assignment, other languages will not be considered unfortunately.
-* When you have completed the assignment, you need to  push your code to a public repository and send the link via email.
-* Once you reply back to the email, your assignment will be considered completed. Please make sure that you have completed the assignment and pushed all code from your local machine to the repository before you reply.
-* There is no time limit for this task - however, for guidance, it is expected to typically take around 3-4 hours.
+# Assignment: Shopping Cart
 
-# Begin the task
+## Aim
 
-Write some code that provides the following basic shopping cart capabilities:
+- This project aims to simulate an online shopping cart using Javascript(Node.js)
+- The products can be added with desired quantities into the cart.
+- The products are displayed with the prices fetched using the API along with their names.
+- Then it also displays the subtotal of the products addition to the 12.5% tax, and also the final total price.
 
-1. Add a product to the cart
-   1. Specifying the product name and quantity
-   2. Retrieve the product price by issuing a request to the the [Price API](#price-api) specified below
-   3. Cart state (totals, etc.) must be available
+## Hierarchy of Project
 
-2. Calculate the state:
-   1. Cart subtotal (sum of price for all items)
-   2. Tax payable (charged at 12.5% on the subtotal)
-   3. Total payable (subtotal + tax)
-   4. Totals should be rounded up where required
+|_ main_src
+| |_ cart.js # Functionality of the cart to sum up and display products and total, logic of fetching the prices through API
+| |_ main.js # Input area to enter the products name and quantity
+|
+|_ code*test
+| |* cart.test.js # Unit tests for the shopping cart
+|
+|\_ README.md # Project description document
+|
+|\_\_ package.json # Dependencies and json configs
 
-## Price API
+## Instructions
 
-The price API is an HTTP service that returns the price details for a product, identified by it's name. The shopping cart should integrate with the price API to retrieve product prices. 
+Clone the repo: https://github.com/prajwalnaveeenn/shopping-cart-assignment.git
+Enter the directory: cd shopping-cart-assignment
 
-### Price API Service Details
+### Install dependencies
 
-Start the price API by running the following command: `npm run serve-products`
+Install Node.js if not installed: `npm install`
 
-Base URL: `http://localhost:3001/`
+### Price API
 
-View Product: `GET /products/{product}`
+Use command: `npm run serve-products`
 
-List of available products
-* `cheerios`
-* `cornflakes`
-* `frosties`
-* `shreddies`
-* `weetabix`
+### Run application
 
-## Example
-The below is a sample with the correct values you can use to confirm your calculations
+Command: `node main_src/cart.js`
 
-### Inputs
-* Add 1 × cornflakes @ 2.52 each
-* Add another 1 x cornflakes @2.52 each
-* Add 1 × weetabix @ 9.98 each
-  
-### Results  
-* Cart contains 2 x cornflakes
-* Cart contains 1 x weetabix
-* Subtotal = 15.02
-* Tax = 1.88
-* Total = 16.90
+### Test the Script
 
-## Tips on what we’re looking for
+Command: `npm test`
 
-* We value simplicity as an architectural virtue and as a development practice. Solutions should reflect the difficulty of the assigned task, and shouldn’t be overly complex.
-* We prefer simple, well tested solutions over clever solutions.
-* We will appreciate descriptive and unambiguous names for the concepts you introduce.
-* Atomic commits with descriptive messages will get you extra brownie points.
+## Method functionality
 
-### DO
+- addProduct(): Adding products into the cart by their name and quantity(increments if present in cart).
+- fetchPrice(): Fetches the prices through an api call(from url port 3001 '/products').
+- calculateTotals(): Mathematical implementation to fetch subTotal, Tax(12.5%), Total along with roundoff logic.
+- displayCart(): Displays the output with all the calculated and fetched values from above methods.
+- LoadTestData(): Method inside code_test/cart.test.js file fetches prices from test_data folder and unit tests covers 100% functionality.
 
-* ✅ Include unit tests.
-* ✅ Test both any client and logic.
-* ✅ Update the README.md with any relevant information, assumptions, and/or tradeoffs you would like to highlight.
-* ✅ Add some information on how the reviewer might test your solution.
+### Code Structure
 
-### DO NOT
-
-* ❌ Submit any form of app, such as web APIs, browser, desktop, or command-line applications.
-* ❌ Add unnecessary layers of abstraction.
-* ❌ Add unnecessary patterns/ architectural features that aren’t called for e.g. persistent storage.
+This code provides a clear understanding of how this project works, with understandable method names and decent format. Handles all of the test cases.
