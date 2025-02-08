@@ -10,11 +10,11 @@
 ## Hierarchy of Project
 
 1. main_src
-1.1 cart.js # Functionality of the cart to sum up and display products and total, logic of fetching the prices through API
-1.2 main.js # Input area to enter the products name and quantity
+  - cart.js # Functionality of the cart to sum up and display products and total, logic of fetching the prices through API
+  - main.js # Input area to enter the products name and quantity
 
 2. code_test
-2.1 cart.test.js # Unit tests for the shopping cart
+  - cart.test.js # Unit tests for the shopping cart
 
 3. README.md # Project description document
 
